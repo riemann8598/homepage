@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>리만수학학원 — 수학의 본질을 꿰뚫는 힘</title>
+  <meta name="description" content="리만수학학원 공식 홈페이지. 체계적인 리만시스템으로 수학의 본질을 꿰뚫는 힘을 길러드립니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════
+       DESIGN SYSTEM — Luxury / Editorial
+    ═══════════════════════════════════════════════ */
+    :root {
+      --ink: #0a0a0a;
+      --ink-soft: #2c2c2c;
+      --ink-muted: #6b6b6b;
+      --cream: #faf9f7;
+      --warm-white: #f5f3ef;
+      --gold: #b8963e;
+      --gold-light: #d4b06a;
+      --gold-dark: #96782f;
+      --accent: #1a3a5c;
+      --accent-light: #2a5a8c;
+      --border: #e5e0d8;
+      --border-light: #ede9e3;
+
+      --font-display: 'Noto Serif KR', Georgia, serif;
+      --font-body: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════
+       UTILITY
+    ═══════════════════════════════════════════════ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      max-width: 560px;
+    }
+
+    .gold-line {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 24px 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       REVEAL ANIMATIONS
+    ═══════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    /* ═══════════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(250, 249, 247, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.4s, background 0.4s;
+    }
+
+    .nav.scrolled {
+      border-bottom-color: var(--border-light);
+      background: rgba(250, 249, 247, 0.95);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo-img {
+      height: 96px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width 0.3s var(--ease-out-expo);
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Mobile menu button */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      margin: 5px 0;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile nav overlay */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(250, 249, 247, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      padding: 48px 24px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+      flex-direction: column;
+      opacity: 1;
+    }
+
+    .nav-mobile a {
+      text-decoration: none;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+      display: block;
+      transition: color 0.3s;
+    }
+
+    .nav-mobile a:hover {
+      color: var(--gold);
+    }
+
+    /* ═══════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(184, 150, 62, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(26, 58, 92, 0.12) 0%, transparent 50%);
+    }
+
+    /* Decorative grid pattern */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+      width: 100%;
+    }
+
+    .hero-logo-img {
+      height: 160px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s var(--ease-out-expo) forwards;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s var(--ease-out-expo) forwards;
+    }
+
+    .hero h1 .gold {
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s var(--ease-out-expo) forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s var(--ease-out-expo) forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Floating math symbols decoration */
+    .hero-deco {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Georgia', serif;
+      font-size: 14rem;
+      color: rgba(184, 150, 62, 0.05);
+      line-height: 1;
+      pointer-events: none;
+      z-index: 1;
+      user-select: none;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      transition: all 0.35s var(--ease-out-expo);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+      box-shadow: 0 4px 20px rgba(184, 150, 62, 0.3);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(184, 150, 62, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: var(--ink-soft);
+      transform: translateY(-2px);
+    }
+
+    .btn-kakao {
+      background: #FEE500;
+      color: #191919;
+    }
+
+    .btn-kakao:hover {
+      background: #F5DC00;
+      transform: translateY(-2px);
+    }
+
+    .btn-sms {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-sms:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════
+       SECTION: 학원 소개
+    ═══════════════════════════════════════════════ */
+    .about {
+      padding: 120px 0;
+      background: var(--cream);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text blockquote {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.8;
+      color: var(--ink);
+      border-left: 3px solid var(--gold);
+      padding-left: 24px;
+      margin: 32px 0;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+
+    /* Contact CTA buttons in about */
+    .contact-btns {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .contact-btns .btn {
+      font-size: 0.88rem;
+      padding: 13px 24px;
+    }
+
+    .contact-btns .btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Visual card */
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════════
+       SECTION: 리만시스템
+    ═══════════════════════════════════════════════ */
+    .system {
+      padding: 120px 0;
+      background: var(--ink);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .system::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 70%, rgba(184, 150, 62, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 20%, rgba(26, 58, 92, 0.08) 0%, transparent 50%);
+    }
+
+    .system .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .system .section-title {
+      color: white;
+    }
+
+    .system .section-desc {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .system-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .system-header .section-desc {
+      margin: 0 auto;
+    }
+
+    /* ── Orbit Diagram ── */
+    .orbit-diagram {
+      position: relative;
+      width: 420px;
+      height: 420px;
+      margin: 0 auto 80px;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 320px;
+      height: 320px;
+      transform: translate(-50%, -50%);
+      border: 1.5px dashed rgba(184, 150, 62, 0.25);
+      border-radius: 50%;
+      animation: spin 40s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .orbit-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+
+    .orbit-center-inner {
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      box-shadow: 0 0 60px rgba(184, 150, 62, 0.3), 0 0 120px rgba(184, 150, 62, 0.1);
+    }
+
+    .orbit-emoji {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .orbit-center-inner strong {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: white;
+    }
+
+    .orbit-node {
+      position: absolute;
+      z-index: 5;
+    }
+
+    .orbit-node-inner {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 20px 18px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      transition: all 0.4s var(--ease-out-expo);
+      min-width: 140px;
+    }
+
+    .orbit-node-inner:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(184, 150, 62, 0.4);
+      transform: scale(1.05);
+    }
+
+    .orbit-node-icon {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .orbit-node-inner strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .orbit-node-inner span {
+      font-size: 0.74rem;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.5;
+    }
+
+    /* Node positions */
+    .orbit-node-1 {
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .orbit-node-2 {
+      bottom: 10px;
+      left: -30px;
+    }
+
+    .orbit-node-3 {
+      bottom: 10px;
+      right: -30px;
+    }
+
+    /* Connectors (lines to center) */
+    .orbit-connector {
+      position: absolute;
+      background: linear-gradient(to bottom, rgba(184, 150, 62, 0.4), transparent);
+      width: 1.5px;
+    }
+
+    .c1 {
+      height: 60px;
+      bottom: -60px;
+      left: 50%;
+    }
+
+    .c2 {
+      height: 50px;
+      top: -50px;
+      right: 30px;
+      transform: rotate(30deg);
+      transform-origin: top right;
+    }
+
+    .c3 {
+      height: 50px;
+      top: -50px;
+      left: 30px;
+      transform: rotate(-30deg);
+      transform-origin: top left;
+    }
+
+    /* ── Features Grid ── */
+    .system-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .sys-feat {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 28px 24px;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .sys-feat:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(184, 150, 62, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .sys-feat-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: rgba(184, 150, 62, 0.2);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 40px;
+    }
+
+    .sys-feat-body h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .sys-feat-body p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.7;
+    }
+
+    .sys-feat-body strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════════════
+       SECTION: 수업시간 & 수업료
+    ═══════════════════════════════════════════════ */
+    .schedule {
+      padding: 120px 0;
+      background: var(--cream);
+    }
+
+    .schedule-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .schedule-header .section-desc {
+      margin: 0 auto;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .price-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
+    }
+
+    .price-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    .price-card.featured {
+      border-color: var(--gold);
+    }
+
+    .price-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    .price-card-header {
+      padding: 32px 32px 0;
+      text-align: center;
+    }
+
+    .price-card-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .badge-elementary {
+      background: #e8f4f0;
+      color: #2a7a5f;
+    }
+
+    .badge-middle {
+      background: #e8ecf4;
+      color: #2a4a7a;
+    }
+
+    .badge-high {
+      background: #f4e8f0;
+      color: #7a2a5f;
+    }
+
+    .price-card-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin: 16px 0;
+    }
+
+    .price-amount span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+    }
+
+    .price-card-body {
+      padding: 24px 32px 32px;
+    }
+
+    .price-detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.9rem;
+    }
+
+    .price-detail:last-child {
+      border-bottom: none;
+    }
+
+    .price-detail-label {
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    .price-detail-value {
+      color: var(--ink);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .pricing-note {
+      text-align: center;
+      padding: 20px;
+      background: var(--warm-white);
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+    }
+
+    .pricing-note p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+
+    .pricing-note strong {
+      color: var(--gold-dark);
+    }
+
+    /* Timeline visualization */
+    .timetable-visual {
+      margin-bottom: 48px;
+    }
+
+    .timeline-bar {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 40px 28px;
+    }
+
+    .timeline-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      height: 38px;
+    }
+
+    .timeline-row-label {
+      width: 56px;
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      text-align: right;
+      padding-right: 12px;
+    }
+
+    .timeline-row-track {
+      flex: 1;
+      position: relative;
+      height: 100%;
+    }
+
+    .timeline-block {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.01em;
+      transition: filter 0.3s, transform 0.3s var(--ease-out-expo);
+      cursor: default;
+    }
+
+    .timeline-block:hover {
+      filter: brightness(1.15);
+      transform: scaleY(1.08);
+    }
+
+    .timeline-block .tl-time {
+      font-weight: 400;
+      opacity: 0.8;
+      margin-left: 8px;
+      font-size: 0.7rem;
+    }
+
+    .tb-elementary {
+      background: linear-gradient(90deg, #22856a, #3db896);
+    }
+
+    .tb-middle {
+      background: linear-gradient(90deg, #2a5090, #3a72c4);
+    }
+
+    .tb-high {
+      background: linear-gradient(90deg, #8a3070, #b84098);
+    }
+
+    /* Hour labels */
+    .timeline-hours {
+      display: flex;
+      padding-left: 56px;
+    }
+
+    .timeline-hours span {
+      flex: 1;
+      font-size: 0.68rem;
+      color: var(--ink-muted);
+      opacity: 0.6;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    .timeline-hours span:last-child {
+      flex: 0;
+      text-align: right;
+    }
+
+    /* Highlight capacity */
+    .highlight-cap {
+      background: rgba(184, 150, 62, 0.1);
+      color: var(--gold-dark) !important;
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-weight: 700 !important;
+    }
+
+    /* Schedule summary strip */
+    .schedule-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 40px;
+      margin-bottom: 24px;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .summary-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .summary-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .summary-text strong {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .summary-text span {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    .summary-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--border);
+    }
+
+    /* ═══════════════════════════════════════════════
+       SECTION: 입학테스트 & 상담
+    ═══════════════════════════════════════════════ */
+    .cta-section {
+      padding: 120px 0;
+      background: var(--warm-white);
+      position: relative;
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .cta-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 56px 48px;
+      text-align: center;
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.06);
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .cta-card:first-child::before {
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    .cta-card:last-child::before {
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    }
+
+    .cta-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+    }
+
+    .cta-card:first-child .cta-icon {
+      background: rgba(184, 150, 62, 0.1);
+    }
+
+    .cta-card:last-child .cta-icon {
+      background: rgba(26, 58, 92, 0.1);
+    }
+
+    .cta-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-card p {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    .footer {
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.4);
+      padding: 60px 0 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      height: 36px;
+    }
+
+    .footer-logo-img {
+      height: 160px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.7;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 32px 0 24px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       FLOATING CONTACT BAR (Mobile)
+    ═══════════════════════════════════════════════ */
+    .floating-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      gap: 10px;
+    }
+
+    .floating-bar .btn {
+      flex: 1;
+      justify-content: center;
+      padding: 13px 12px;
+      font-size: 0.82rem;
+      border-radius: 10px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       MODAL
+    ═══════════════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 10, 10, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      width: 90%;
+      max-width: 360px;
+      text-align: center;
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.4s var(--ease-out-expo);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(184, 150, 62, 0.1);
+      color: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .modal-desc {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+    }
+
+    .modal-phone {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 32px;
+      letter-spacing: 0.02em;
+      user-select: all;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--ink-muted);
+      cursor: pointer;
+      padding: 8px;
+      line-height: 1;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .modal-close:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .system-features {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .hero-deco {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 7vw, 3rem);
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+      }
+
+      .system-features {
+        grid-template-columns: 1fr;
+      }
+
+      .orbit-diagram {
+        width: 320px;
+        height: 340px;
+        margin-bottom: 60px;
+      }
+
+      .orbit-ring {
+        width: 240px;
+        height: 240px;
+      }
+
+      .orbit-center-inner {
+        width: 88px;
+        height: 88px;
+      }
+
+      .orbit-center-inner strong {
+        font-size: 0.85rem;
+      }
+
+      .orbit-emoji {
+        font-size: 1.3rem;
+      }
+
+      .orbit-node-inner {
+        min-width: 110px;
+        padding: 14px 12px;
+      }
+
+      .orbit-node-inner strong {
+        font-size: 0.78rem;
+      }
+
+      .orbit-node-inner span {
+        font-size: 0.68rem;
+      }
+
+      .orbit-node-2 {
+        left: -20px;
+        bottom: 0;
+      }
+
+      .orbit-node-3 {
+        right: -20px;
+        bottom: 0;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .timetable-visual {
+        display: none;
+      }
+
+      .schedule-summary {
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+      }
+
+      .summary-divider {
+        width: 80%;
+        height: 1px;
+      }
+
+      .about,
+      .system,
+      .schedule,
+      .cta-section {
+        padding: 80px 0;
+      }
+
+      .cta-card {
+        padding: 40px 32px;
+      }
+
+      .floating-bar {
+        display: flex;
+      }
+
+      body {
+        padding-bottom: 72px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .contact-btns {
+        flex-direction: column;
+      }
+
+      .contact-btns .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .price-card-body {
+        padding: 20px 24px 28px;
+      }
+
+      .price-card-header {
+        padding: 28px 24px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="./리만수학학원_logo 2.png" alt="리만수학학원" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">학원 소개</a></li>
+        <li><a href="#system">리만시스템</a></li>
+        <li><a href="#schedule">수업시간·수업료</a></li>
+        <li><a href="#contact">입학·상담</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="#about" onclick="closeMobile()">학원 소개</a>
+    <a href="#system" onclick="closeMobile()">리만시스템</a>
+    <a href="#schedule" onclick="closeMobile()">수업시간·수업료</a>
+    <a href="#contact" onclick="closeMobile()">입학·상담</a>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-deco">∑</div>
+    <div class="hero-inner">
+      <h1>수학의 본질을<br />꿰뚫는 <span class="gold">힘</span></h1>
+      <p class="hero-sub">
+        체계적인 리만시스템으로 학생 한 명 한 명의<br />
+        잠재력을 끌어올리는 맞춤 수학 교육
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-gold">입학 테스트 신청 →</a>
+        <a href="#schedule" class="btn btn-outline">수업 안내 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 학원 소개 ============ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-label reveal">About</span>
+          <h2 class="section-title reveal reveal-delay-1">리만수학학원을<br />소개합니다</h2>
+          <div class="gold-line reveal reveal-delay-2"></div>
+          <blockquote class="reveal reveal-delay-2">
+            "수학은 단순한 공식 암기가 아닌,<br />
+            사고의 깊이를 키우는 과정입니다."
+          </blockquote>
+          <p class="reveal reveal-delay-3">
+            리만수학학원은 학생 개개인의 수준과 목표에 맞춘 체계적인 커리큘럼을 통해,
+            수학적 사고력과 문제 해결 능력을 근본부터 키워나갑니다.
+          </p>
+          <p class="reveal reveal-delay-3">
+            단순히 점수를 올리는 것을 넘어, 학생 스스로 수학의 구조를 이해하고
+            어떤 문제든 풀어낼 수 있는 진정한 실력을 만들어 드립니다.
+          </p>
+
+          <!-- 문자 & 카톡 바로가기 -->
+          <div class="contact-btns reveal reveal-delay-4">
+            <!-- TODO: 실제 전화번호로 교체 -->
+            <a href="#" onclick="openPhoneModal(event)" class="btn btn-sms">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              문자 상담
+            </a>
+            <!-- TODO: 실제 카카오톡 채널 링크로 교체 -->
+            <a href="https://pf.kakao.com/여기에채널ID" target="_blank" class="btn btn-kakao">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M12 3C6.5 3 2 6.58 2 11c0 2.83 1.88 5.32 4.71 6.72l-.97 3.6c-.08.28.22.52.47.38l4.27-2.58c.49.06.99.09 1.52.09 5.5 0 10-3.58 10-8S17.5 3 12 3z" />
+              </svg>
+              카톡 상담
+            </a>
+          </div>
+        </div>
+
+        <div class="about-visual reveal reveal-delay-2">
+          <div class="about-card">
+            <div class="stat-grid">
+              <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">교육 경력 (년)</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">학부모 만족도</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">1:8</div>
+                <div class="stat-label">소수 정예 수업</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">3단계</div>
+                <div class="stat-label">리만시스템</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 리만시스템 ============ -->
+  <section class="system" id="system">
+    <div class="container">
+      <div class="system-header">
+        <span class="section-label reveal">Riemann System</span>
+        <h2 class="section-title reveal reveal-delay-1">리만시스템</h2>
+        <p class="section-desc reveal reveal-delay-2">
+          학생의 미래를 생각하는 리만만의 학습 관리 시스템
+        </p>
+      </div>
+
+      <!-- ── 순환 다이어그램 ── -->
+      <div class="orbit-diagram reveal reveal-delay-2">
+        <div class="orbit-center">
+          <div class="orbit-center-inner">
+            <span class="orbit-emoji">🎓</span>
+            <strong>학생</strong>
+          </div>
+        </div>
+        <!-- 3 orbiting nodes -->
+        <div class="orbit-node orbit-node-1">
+          <div class="orbit-node-inner">
+            <span class="orbit-node-icon">📖</span>
+            <strong>정규수업</strong>
+            <span>개념 · 풀이 · 오답<br />노트 관리</span>
+          </div>
+          <div class="orbit-connector c1"></div>
+        </div>
+        <div class="orbit-node orbit-node-2">
+          <div class="orbit-node-inner">
+            <span class="orbit-node-icon">📝</span>
+            <strong>정기 평가</strong>
+            <span>일일 · 단원 · 월말<br />학습 진단</span>
+          </div>
+          <div class="orbit-connector c2"></div>
+        </div>
+        <div class="orbit-node orbit-node-3">
+          <div class="orbit-node-inner">
+            <span class="orbit-node-icon">🔬</span>
+            <strong>1:1 맞춤 클리닉</strong>
+            <span>개인별 취약 영역<br />집중 보완</span>
+          </div>
+          <div class="orbit-connector c3"></div>
+        </div>
+        <!-- Rotating ring -->
+        <div class="orbit-ring"></div>
+      </div>
+
+      <!-- ── 6가지 특징 그리드 ── -->
+      <div class="system-features">
+        <div class="sys-feat reveal">
+          <div class="sys-feat-num">01</div>
+          <div class="sys-feat-body">
+            <h4>소수 정예 수업</h4>
+            <p>한 반 최대 <strong>정원 5명</strong>. 학생 한 명 한 명에게 온전히 집중하는 밀착 수업</p>
+          </div>
+        </div>
+        <div class="sys-feat reveal reveal-delay-1">
+          <div class="sys-feat-num">02</div>
+          <div class="sys-feat-body">
+            <h4>학습 몰입 환경</h4>
+            <p>등원과 동시에 <strong>휴대폰 반납</strong>, 등하원은 스스로 — 자기주도 학습 습관 형성</p>
+          </div>
+        </div>
+        <div class="sys-feat reveal reveal-delay-2">
+          <div class="sys-feat-num">03</div>
+          <div class="sys-feat-body">
+            <h4>3종 노트 시스템</h4>
+            <p><strong>개념 · 풀이 · 오답 노트</strong>를 통한 체계적이고 지속적인 학습 관리</p>
+          </div>
+        </div>
+        <div class="sys-feat reveal reveal-delay-1">
+          <div class="sys-feat-num">04</div>
+          <div class="sys-feat-body">
+            <h4>다단계 정기 평가</h4>
+            <p><strong>일일 · 단원 · 월말</strong> 정기평가를 통한 정밀 학습 진단과 피드백</p>
+          </div>
+        </div>
+        <div class="sys-feat reveal reveal-delay-2">
+          <div class="sys-feat-num">05</div>
+          <div class="sys-feat-body">
+            <h4>1:1 맞춤 클리닉</h4>
+            <p>개인별 <strong>부족한 영역을 정확히 진단</strong>하고 1:1로 집중 보완하는 맞춤 클리닉</p>
+          </div>
+        </div>
+        <div class="sys-feat reveal reveal-delay-3">
+          <div class="sys-feat-num">06</div>
+          <div class="sys-feat-body">
+            <h4>입시·진학 맞춤 상담</h4>
+            <p>학생 목표에 맞춘 <strong>입시 전략 · 진학 설계</strong>에 대한 전문 맞춤 상담</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 수업시간 & 수업료 ============ -->
+  <section class="schedule" id="schedule">
+    <div class="container">
+      <div class="schedule-header">
+        <span class="section-label reveal">Schedule & Tuition</span>
+        <h2 class="section-title reveal reveal-delay-1">수업시간 · 수업료</h2>
+        <div class="gold-line reveal reveal-delay-2" style="margin: 20px auto;"></div>
+        <p class="section-desc reveal reveal-delay-2">
+          각 반 소수 정예로 운영되며, 학생의 학년과 수준에 맞는 최적의 수업을 제공합니다
+        </p>
+      </div>
+
+      <!-- ── 시각화된 타임라인 ── -->
+      <div class="timetable-visual reveal">
+        <div class="timeline-bar">
+          <div class="timeline-rows">
+            <!-- 초등부: 2:00~6:00 → 0% to 44.4% of 9hr span -->
+            <div class="timeline-row">
+              <div class="timeline-row-label">초등</div>
+              <div class="timeline-row-track">
+                <div class="timeline-block tb-elementary" style="left:0%;width:44.4%;">
+                  초등부<span class="tl-time">2:00 – 6:00</span>
+                </div>
+              </div>
+            </div>
+            <!-- 중등부: 6:00~10:00 → 44.4% to 88.8% -->
+            <div class="timeline-row">
+              <div class="timeline-row-label">중등</div>
+              <div class="timeline-row-track">
+                <div class="timeline-block tb-middle" style="left:44.4%;width:44.4%;">
+                  중등부<span class="tl-time">6:00 – 10:00</span>
+                </div>
+              </div>
+            </div>
+            <!-- 고등부: 5:00~11:00 → 33.3% to 100% -->
+            <div class="timeline-row">
+              <div class="timeline-row-label">고등</div>
+              <div class="timeline-row-track">
+                <div class="timeline-block tb-high" style="left:33.3%;width:66.7%;">
+                  고등부<span class="tl-time">5:00 – 11:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-hours">
+            <span>2PM</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- 초등부 -->
+        <div class="price-card reveal">
+          <div class="price-card-header">
+            <span class="price-card-badge badge-elementary">Elementary</span>
+            <div class="price-card-title">초등부</div>
+            <div class="price-amount">
+              <!-- TODO: 수업료 확정 시 교체 -->
+              상담 문의<span></span>
+            </div>
+          </div>
+          <div class="price-card-body">
+            <div class="price-detail">
+              <span class="price-detail-label">수업 시간</span>
+              <span class="price-detail-value">오후 2:00 ~ 6:00</span>
+            </div>
+            <div class="price-detail">
+              <span class="price-detail-label">수업 시수</span>
+              <span class="price-detail-value">주 3회 / 90분</span>
+            </div>
+            <div class="price-detail">
+              <span class="price-detail-label">정원</span>
+              <span class="price-detail-value highlight-cap">5명</span>
+            </div>
+            <div class="price-detail">
+              <span class="price-detail-label">수업 방식</span>
+              <span class="price-detail-value">개별 맞춤 진도</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 중등부 -->
+        <div class="price-card featured reveal reveal-delay-1">
+          <div class="price-card-header">
+            <span class="price-card-badge badge-middle">Middle School</span>
+            <div class="price-card-title">중등부</div>
+            <div class="price-amount">
+              상담 문의<span></span>
+            </div>
+          </div>
+          <div class="price-card-body">
+            <div class="price-detail">
+              <span class="price-detail-label">수업 시간</span>
+              <span class="price-detail-value">오후 6:00 ~ 10:00</span>
+            </div>
+            <div class="price-detail">
+              <span class="price-detail-label">수업 시수</span>
+              <span class="price-detail-value">주 3회 / 120분</span>
+            </div>
+            <div class="price-detail">
+              <span class="price-detail-label">정원</span>
+              <span class="price-detail-value highlight-cap">5명</span>
+            </div>
+            <div class="price-detail">
+              <span class="price-detail-label">수업 방식</span>
+              <span class="price-detail-value">개별 맞춤 진도</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 고등부 -->
+        <div class="price-card reveal reveal-delay-2">
+          <div class="price-card-header">
+            <span class="price-card-badge badge-high">High School</span>
+            <div class="price-card-title">고등부</div>
+            <div class="price-amount">
+              상담 문의<span></span>
+            </div>
+          </div>
+          <div class="price-card-body">
+            <div class="price-detail">
+              <span class="price-detail-label">수업 시간</span>
+              <span class="price-detail-value">오후 5:00 ~ 11:00</span>
+            </div>
+            <div class="price-detail">
+              <span class="price-detail-label">수업 시수</span>
+              <span class="price-detail-value">주 3회 / 120분</span>
+            </div>
+            <div class="price-detail">
+              <span class="price-detail-label">정원</span>
+              <span class="price-detail-value highlight-cap">5명</span>
+            </div>
+            <div class="price-detail">
+              <span class="price-detail-label">수업 방식</span>
+              <span class="price-detail-value">개별 맞춤 진도</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 핵심 요약 카드 -->
+      <div class="schedule-summary reveal">
+        <div class="summary-item">
+          <div class="summary-icon">👥</div>
+          <div class="summary-text">
+            <strong>전 반 정원 5명</strong>
+            <span>소수 정예 밀착 관리</span>
+          </div>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <div class="summary-icon">📅</div>
+          <div class="summary-text">
+            <strong>주 3회 수업</strong>
+            <span>꾸준한 학습 루틴</span>
+          </div>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <div class="summary-icon">🎯</div>
+          <div class="summary-text">
+            <strong>개별 맞춤 진도</strong>
+            <span>학생별 1:1 커리큘럼</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-note reveal">
+        <p>💡 수업료는 <strong>상담을 통해 안내</strong>드립니다. 형제·자매 동시 수강 시 할인 혜택이 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 입학테스트 & 상담 ============ -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="schedule-header" style="margin-bottom: 64px;">
+        <span class="section-label reveal">Admission</span>
+        <h2 class="section-title reveal reveal-delay-1">입학 안내</h2>
+        <div class="gold-line reveal reveal-delay-2" style="margin: 20px auto;"></div>
+      </div>
+
+      <div class="cta-grid">
+        <div class="cta-card reveal">
+          <div class="cta-icon">📝</div>
+          <h3>입학 테스트 신청</h3>
+          <p>
+            리만수학학원 입학을 위한 진단 테스트를 신청하실 수 있습니다.
+            테스트 결과를 바탕으로 맞춤 학습 플랜을 설계해 드립니다.
+          </p>
+          <a href="https://forms.gle/bJafBKEVXUdz6goPA" target="_blank" class="btn btn-gold">
+            입학 테스트 신청하기 →
+          </a>
+        </div>
+
+        <div class="cta-card reveal reveal-delay-1">
+          <div class="cta-icon">💬</div>
+          <h3>상담 예약</h3>
+          <p>
+            수업 방식, 커리큘럼, 수업료 등 궁금하신 점이 있으시면
+            편하게 상담 예약을 해주세요.
+          </p>
+          <a href="https://forms.gle/pWtTkvFh2NArEkT59" target="_blank" class="btn btn-dark">
+            상담 예약하기 →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <img src="./리만수학학원_logo 1.png" alt="리만수학학원" class="footer-logo-img" />
+        </div>
+        <div class="footer-copy" style="opacity:0.6; line-height:1.8;">
+          <strong>리만수학학원 교육청 등록정보</strong><br />
+          등록번호: 제 5302호 &nbsp;|&nbsp; 주소: 부산 부산진구 새싹로 218, 5층 (속편한장내과건물 5층) &nbsp;|&nbsp; 전화번호: 010.3615.8598
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-inner">
+        <div class="footer-copy">© 2026 리만수학학원. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING MOBILE BAR ============ -->
+  <div class="floating-bar" id="floatingBar">
+    <!-- TODO: 실제 전화번호 교체 -->
+    <a href="#" onclick="openPhoneModal(event)" class="btn btn-sms">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" width="16" height="16">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+      문자
+    </a>
+    <!-- TODO: 실제 카카오톡 채널 링크 교체 -->
+    <a href="https://pf.kakao.com/여기에채널ID" target="_blank" class="btn btn-kakao">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+        <path
+          d="M12 3C6.5 3 2 6.58 2 11c0 2.83 1.88 5.32 4.71 6.72l-.97 3.6c-.08.28.22.52.47.38l4.27-2.58c.49.06.99.09 1.52.09 5.5 0 10-3.58 10-8S17.5 3 12 3z" />
+      </svg>
+      카톡
+    </a>
+    <a href="#contact" class="btn btn-gold" style="font-size:0.82rem;">상담 신청</a>
+  </div>
+
+  <!-- ============ PHONE MODAL ============ -->
+  <div class="modal-overlay" id="phoneModal" onclick="closePhoneModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closePhoneModal(event)">✕</button>
+      <div class="modal-icon">📞</div>
+      <h3 class="modal-title">상담 문의</h3>
+      <p class="modal-desc">아래 번호로 연락주시면<br />친절하게 상담해드립니다.</p>
+      <div class="modal-phone" style="margin-bottom: 10px;">
+        <span style="font-size: 1.2rem; color: var(--ink-muted); margin-right: 8px; font-weight: 500;">연락처<br />
+        </span>010-3615-8598
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    // ── Nav scroll effect ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ── Mobile menu toggle ──
+    const toggle = document.getElementById('navToggle');
+    const mobile = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      mobile.classList.toggle('open');
+      document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
+    });
+    function closeMobile() {
+      toggle.classList.remove('active');
+      mobile.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── Scroll reveal ──
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Smooth scroll for anchor links ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ── Phone Modal ──
+    const phoneModal = document.getElementById('phoneModal');
+    function openPhoneModal(e) {
+      if (e) e.preventDefault();
+      phoneModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePhoneModal(e) {
+      if (e) e.preventDefault();
+      phoneModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  </script>
+</body>
+
+</html>
