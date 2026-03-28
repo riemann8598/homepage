@@ -142,7 +142,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(250, 249, 247, 0.85);
+      background: #ffffff;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid transparent;
@@ -151,7 +151,7 @@
 
     .nav.scrolled {
       border-bottom-color: var(--border-light);
-      background: rgba(250, 249, 247, 0.95);
+      background: #ffffff;
     }
 
     .nav-inner {
@@ -171,7 +171,7 @@
     }
 
     .nav-logo-img {
-      height: 96px;
+      height: 64px;
       width: auto;
       object-fit: contain;
     }
@@ -465,6 +465,16 @@
 
     .btn-sms:hover {
       background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-blog {
+      background: #03C75A;
+      color: white;
+    }
+
+    .btn-blog:hover {
+      background: #02b351;
       transform: translateY(-2px);
     }
 
@@ -1201,6 +1211,154 @@
     }
 
     /* ═══════════════════════════════════════════════
+       ADMISSION INFO
+    ═══════════════════════════════════════════════ */
+    .admission-info {
+      margin-top: 64px;
+    }
+
+    .admission-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .admission-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+    }
+
+    .admission-block h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .admission-notice-list {
+      list-style: none;
+      margin-bottom: 0;
+    }
+
+    .admission-notice-list li {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      padding: 10px 0;
+      padding-left: 24px;
+      position: relative;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .admission-notice-list li:last-child {
+      border-bottom: none;
+    }
+
+    .admission-notice-list li::before {
+      content: '*';
+      position: absolute;
+      left: 4px;
+      top: 10px;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .admission-notice-list li strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* Enrollment table */
+    .enrollment-table-wrap {
+      margin-top: 48px;
+    }
+
+    .enrollment-table-wrap h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .enrollment-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .enrollment-table thead th {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: white;
+      background: var(--ink);
+      padding: 16px 20px;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    .enrollment-table thead th:first-child {
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .enrollment-table tbody td {
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .enrollment-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .enrollment-table tbody tr:hover {
+      background: rgba(184, 150, 62, 0.04);
+    }
+
+    .enrollment-table tbody td:first-child {
+      font-weight: 600;
+      color: var(--ink);
+      border-right: 1px solid var(--border-light);
+    }
+
+    .enrollment-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(42, 122, 95, 0.08);
+      color: #2a7a5f;
+    }
+
+    .enrollment-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2a7a5f;
+    }
+
+    /* ═══════════════════════════════════════════════
        FOOTER
     ═══════════════════════════════════════════════ */
     .footer {
@@ -1224,7 +1382,7 @@
     }
 
     .footer-logo-img {
-      height: 160px;
+      height: 64px;
       width: auto;
       object-fit: contain;
       opacity: 0.7;
@@ -1494,6 +1652,10 @@
         padding: 40px 32px;
       }
 
+      .admission-block {
+        padding: 32px 24px;
+      }
+
       .floating-bar {
         display: flex;
       }
@@ -1549,10 +1711,10 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="./리만수학학원_logo 2.png" alt="리만수학학원" class="nav-logo-img" />
+        <img src="./header_logo.jpg" alt="리만수학학원" class="nav-logo-img" />
       </a>
       <ul class="nav-links">
-        <li><a href="#about">학원 소개</a></li>
+        <li><a href="./about.html">학원 소개</a></li>
         <li><a href="#system">리만시스템</a></li>
         <li><a href="#schedule">수업시간·수업료</a></li>
         <li><a href="#contact">입학·상담</a></li>
@@ -1565,7 +1727,7 @@
 
   <!-- Mobile nav -->
   <div class="nav-mobile" id="navMobile">
-    <a href="#about" onclick="closeMobile()">학원 소개</a>
+    <a href="./about.html" onclick="closeMobile()">학원 소개</a>
     <a href="#system" onclick="closeMobile()">리만시스템</a>
     <a href="#schedule" onclick="closeMobile()">수업시간·수업료</a>
     <a href="#contact" onclick="closeMobile()">입학·상담</a>
@@ -1608,23 +1770,27 @@
             어떤 문제든 풀어낼 수 있는 진정한 실력을 만들어 드립니다.
           </p>
 
-          <!-- 문자 & 카톡 바로가기 -->
+          <!-- 전화/문자 & 카톡 & 블로그 바로가기 -->
           <div class="contact-btns reveal reveal-delay-4">
-            <!-- TODO: 실제 전화번호로 교체 -->
             <a href="#" onclick="openPhoneModal(event)" class="btn btn-sms">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-              문자 상담
+              전화/문자 상담
             </a>
-            <!-- TODO: 실제 카카오톡 채널 링크로 교체 -->
             <a href="https://pf.kakao.com/여기에채널ID" target="_blank" class="btn btn-kakao">
               <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
                 <path
                   d="M12 3C6.5 3 2 6.58 2 11c0 2.83 1.88 5.32 4.71 6.72l-.97 3.6c-.08.28.22.52.47.38l4.27-2.58c.49.06.99.09 1.52.09 5.5 0 10-3.58 10-8S17.5 3 12 3z" />
               </svg>
               카톡 상담
+            </a>
+            <a href="https://blog.naver.com/keosi3130" target="_blank" class="btn btn-blog">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm1 3v10h6V7H5zm8 0v4h6V7h-6zm0 6v4h6v-4h-6z"/>
+              </svg>
+              블로그
             </a>
           </div>
         </div>
@@ -1809,8 +1975,7 @@
             <span class="price-card-badge badge-elementary">Elementary</span>
             <div class="price-card-title">초등부</div>
             <div class="price-amount">
-              <!-- TODO: 수업료 확정 시 교체 -->
-              상담 문의<span></span>
+              23<span>만원</span>
             </div>
           </div>
           <div class="price-card-body">
@@ -1839,7 +2004,7 @@
             <span class="price-card-badge badge-middle">Middle School</span>
             <div class="price-card-title">중등부</div>
             <div class="price-amount">
-              상담 문의<span></span>
+              28<span>만원</span>
             </div>
           </div>
           <div class="price-card-body">
@@ -1868,7 +2033,7 @@
             <span class="price-card-badge badge-high">High School</span>
             <div class="price-card-title">고등부</div>
             <div class="price-amount">
-              상담 문의<span></span>
+              35<span>만원</span>
             </div>
           </div>
           <div class="price-card-body">
@@ -1920,7 +2085,7 @@
       </div>
 
       <div class="pricing-note reveal">
-        <p>💡 수업료는 <strong>상담을 통해 안내</strong>드립니다. 형제·자매 동시 수강 시 할인 혜택이 있습니다.</p>
+        <p>💡 형제·자매 동시 수강 시 할인 혜택이 있습니다. 자세한 사항은 <strong>상담을 통해 안내</strong>드립니다.</p>
       </div>
     </div>
   </section>
@@ -1959,6 +2124,69 @@
           </a>
         </div>
       </div>
+
+      <!-- 입학테스트 안내 -->
+      <div class="admission-info">
+        <div class="admission-block reveal">
+          <h3>입학 테스트 안내</h3>
+          <ul class="admission-notice-list">
+            <li>입학 테스트는 <strong>월, 수 오후 6시</strong>에 가능합니다.</li>
+            <li>입학 테스트 당일에는 학생에게 <strong>점수를 공개하지 않습니다.</strong></li>
+            <li>입학 테스트 후 학부모 상담은 <strong>전화 / 대면 모두 가능</strong>하니 선택하시면 됩니다.</li>
+            <li>테스트 결과가 기본점수 이하이거나 학습의지가 충분하지 않다고 판단될 경우 <strong>등록이 제한</strong>될 수 있습니다.</li>
+          </ul>
+        </div>
+
+        <div class="enrollment-table-wrap reveal reveal-delay-1">
+          <h3>학년별 등록 현황</h3>
+          <table class="enrollment-table">
+            <thead>
+              <tr>
+                <th>학년</th>
+                <th>등록 가능 여부</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>초등 4학년</td>
+                <td><span class="enrollment-badge">등록 가능</span></td>
+              </tr>
+              <tr>
+                <td>초등 5학년</td>
+                <td><span class="enrollment-badge">등록 가능</span></td>
+              </tr>
+              <tr>
+                <td>초등 6학년</td>
+                <td><span class="enrollment-badge">등록 가능</span></td>
+              </tr>
+              <tr>
+                <td>중등 1학년</td>
+                <td><span class="enrollment-badge">등록 가능</span></td>
+              </tr>
+              <tr>
+                <td>중등 2학년</td>
+                <td><span class="enrollment-badge">등록 가능</span></td>
+              </tr>
+              <tr>
+                <td>중등 3학년</td>
+                <td><span class="enrollment-badge">등록 가능</span></td>
+              </tr>
+              <tr>
+                <td>고등 1학년</td>
+                <td><span class="enrollment-badge">등록 가능</span></td>
+              </tr>
+              <tr>
+                <td>고등 2학년</td>
+                <td><span class="enrollment-badge">등록 가능</span></td>
+              </tr>
+              <tr>
+                <td>고등 3학년</td>
+                <td><span class="enrollment-badge">등록 가능</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1967,7 +2195,7 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-logo">
-          <img src="./리만수학학원_logo 1.png" alt="리만수학학원" class="footer-logo-img" />
+          <img src="./footer_logo.jpg" alt="리만수학학원" class="footer-logo-img" />
         </div>
         <div class="footer-copy" style="opacity:0.6; line-height:1.8;">
           <strong>리만수학학원 교육청 등록정보</strong><br />
@@ -1983,15 +2211,13 @@
 
   <!-- ============ FLOATING MOBILE BAR ============ -->
   <div class="floating-bar" id="floatingBar">
-    <!-- TODO: 실제 전화번호 교체 -->
     <a href="#" onclick="openPhoneModal(event)" class="btn btn-sms">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
         stroke-linejoin="round" width="16" height="16">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
-      문자
+      전화/문자
     </a>
-    <!-- TODO: 실제 카카오톡 채널 링크 교체 -->
     <a href="https://pf.kakao.com/여기에채널ID" target="_blank" class="btn btn-kakao">
       <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
         <path
@@ -1999,7 +2225,9 @@
       </svg>
       카톡
     </a>
-    <a href="#contact" class="btn btn-gold" style="font-size:0.82rem;">상담 신청</a>
+    <a href="https://blog.naver.com/keosi3130" target="_blank" class="btn btn-blog">
+      블로그
+    </a>
   </div>
 
   <!-- ============ PHONE MODAL ============ -->

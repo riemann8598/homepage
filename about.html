@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>학원 소개 — 리만수학학원</title>
+  <meta name="description" content="리만수학학원 원장 윤혜훈 인사말과 강사진 소개. 수학전공, 교원자격증 보유 전문 교육진이 가르칩니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════
+       DESIGN SYSTEM — Luxury / Editorial
+    ═══════════════════════════════════════════════ */
+    :root {
+      --ink: #0a0a0a;
+      --ink-soft: #2c2c2c;
+      --ink-muted: #6b6b6b;
+      --cream: #faf9f7;
+      --warm-white: #f5f3ef;
+      --gold: #b8963e;
+      --gold-light: #d4b06a;
+      --gold-dark: #96782f;
+      --accent: #1a3a5c;
+      --accent-light: #2a5a8c;
+      --border: #e5e0d8;
+      --border-light: #ede9e3;
+
+      --font-display: 'Noto Serif KR', Georgia, serif;
+      --font-body: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════
+       UTILITY
+    ═══════════════════════════════════════════════ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .gold-line {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 24px 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       REVEAL ANIMATIONS
+    ═══════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ═══════════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: #ffffff;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.4s, background 0.4s;
+    }
+
+    .nav.scrolled {
+      border-bottom-color: var(--border-light);
+      background: #ffffff;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo-img {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width 0.3s var(--ease-out-expo);
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Mobile menu button */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      margin: 5px 0;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile nav overlay */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(250, 249, 247, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      padding: 48px 24px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+      flex-direction: column;
+      opacity: 1;
+    }
+
+    .nav-mobile a {
+      text-decoration: none;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+      display: block;
+      transition: color 0.3s;
+    }
+
+    .nav-mobile a:hover { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════
+       PAGE HERO (about)
+    ═══════════════════════════════════════════════ */
+    .page-hero {
+      padding: 160px 0 80px;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(184, 150, 62, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(26, 58, 92, 0.12) 0%, transparent 50%);
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .page-hero .container {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .page-hero .section-label {
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s var(--ease-out-expo) forwards;
+    }
+
+    .page-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s var(--ease-out-expo) forwards;
+    }
+
+    .page-hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 480px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s var(--ease-out-expo) forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       GREETING SECTION
+    ═══════════════════════════════════════════════ */
+    .greeting {
+      padding: 120px 0;
+      background: var(--cream);
+    }
+
+    .greeting-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .greeting-inner .section-title {
+      margin-bottom: 12px;
+    }
+
+    .greeting-body {
+      margin-top: 32px;
+    }
+
+    .greeting-body p {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+
+    .greeting-body .emphasis {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+      margin: 36px 0;
+      line-height: 1.9;
+    }
+
+    .greeting-list {
+      list-style: none;
+      margin: 28px 0;
+      padding-left: 4px;
+    }
+
+    .greeting-list li {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 2;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .greeting-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .greeting-closing {
+      margin-top: 40px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: right;
+    }
+
+    /* ═══════════════════════════════════════════════
+       TEAM SECTION
+    ═══════════════════════════════════════════════ */
+    .team {
+      padding: 120px 0;
+      background: var(--warm-white);
+    }
+
+    .team-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .team-header .section-desc {
+      color: var(--ink-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .team-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 56px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.06);
+    }
+
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .team-card:first-child::before {
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    .team-card:last-child::before {
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    }
+
+    .team-card-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+    }
+
+    .team-card:first-child .team-card-icon {
+      background: rgba(184, 150, 62, 0.1);
+    }
+
+    .team-card:last-child .team-card-icon {
+      background: rgba(26, 58, 92, 0.1);
+    }
+
+    .team-card-role {
+      display: inline-block;
+      padding: 5px 16px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .team-card:first-child .team-card-role {
+      background: rgba(184, 150, 62, 0.1);
+      color: var(--gold-dark);
+    }
+
+    .team-card:last-child .team-card-role {
+      background: rgba(26, 58, 92, 0.1);
+      color: var(--accent);
+    }
+
+    .team-card-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .team-card-divider {
+      width: 32px;
+      height: 2px;
+      background: var(--border);
+      margin: 0 auto 20px;
+    }
+
+    .team-card-info {
+      list-style: none;
+      text-align: left;
+    }
+
+    .team-card-info li {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      padding: 6px 0;
+      padding-left: 24px;
+      position: relative;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .team-card-info li:last-child {
+      border-bottom: none;
+    }
+
+    .team-card-info li::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 14px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    .team-card:first-child .team-card-info li::before {
+      background: var(--gold);
+    }
+
+    .team-card:last-child .team-card-info li::before {
+      background: var(--accent);
+    }
+
+    .team-card-info .highlight {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      transition: all 0.35s var(--ease-out-expo);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+      box-shadow: 0 4px 20px rgba(184, 150, 62, 0.3);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(184, 150, 62, 0.4);
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: var(--ink-soft);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════
+       CTA SECTION
+    ═══════════════════════════════════════════════ */
+    .cta-banner {
+      padding: 80px 0;
+      background: var(--ink);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(184, 150, 62, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 50%, rgba(26, 58, 92, 0.08) 0%, transparent 50%);
+    }
+
+    .cta-banner .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .cta-banner p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 32px;
+    }
+
+    .cta-banner .btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    .footer {
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.4);
+      padding: 60px 0 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      height: 36px;
+    }
+
+    .footer-logo-img {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.7;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 32px 0 24px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .page-hero { padding: 140px 0 60px; }
+
+      .greeting,
+      .team { padding: 80px 0; }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      .team-card { padding: 40px 32px; }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-logo {
+        height: auto;
+        margin-bottom: 48px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cta-banner .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cta-banner .btn-group .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="./index.html" class="nav-logo">
+        <img src="./header_logo.jpg" alt="리만수학학원" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="./about.html" class="active">학원 소개</a></li>
+        <li><a href="./index.html#system">리만시스템</a></li>
+        <li><a href="./index.html#schedule">수업시간·수업료</a></li>
+        <li><a href="./index.html#contact">입학·상담</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="./about.html" onclick="closeMobile()">학원 소개</a>
+    <a href="./index.html#system" onclick="closeMobile()">리만시스템</a>
+    <a href="./index.html#schedule" onclick="closeMobile()">수업시간·수업료</a>
+    <a href="./index.html#contact" onclick="closeMobile()">입학·상담</a>
+  </div>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">About Us</span>
+      <h1 class="page-hero-title">학원 소개</h1>
+      <p class="page-hero-sub">수학의 참된 기쁨을 느끼고, 스스로 성장하는 힘을 기르는 곳</p>
+    </div>
+  </section>
+
+  <!-- ============ 원장 인사말 ============ -->
+  <section class="greeting">
+    <div class="container">
+      <div class="greeting-inner">
+        <span class="section-label reveal">Greeting</span>
+        <h2 class="section-title reveal reveal-delay-1">원장 인사말</h2>
+        <div class="gold-line reveal reveal-delay-2"></div>
+
+        <div class="greeting-body reveal reveal-delay-3">
+          <p>안녕하세요 리만수학학원 원장 윤혜훈입니다.</p>
+
+          <p>리만수학은 학생들이 수학의 참된 기쁨을 느끼고, 스스로 성장하는 힘을 기를 수 있도록 돕는 학원입니다.</p>
+
+          <div class="emphasis">
+            저는 수학 실력 향상의 시작은 단순히 문제를 많이 푸는 것이 아니라,
+            먼저 다음 네 가지 기본기를 바로 세우는 데 있다고 생각합니다.
+          </div>
+
+          <ul class="greeting-list">
+            <li>첫째, 공부에 대한 긍정적인 태도</li>
+            <li>둘째, 공부에 대한 올바른 학습방향</li>
+            <li>셋째, 공부에 대한 꾸준한 학습습관</li>
+            <li>넷째, 공부에 대한 분명한 목표설정</li>
+          </ul>
+
+          <p>이러한 기본기가 바로 서야 깊이 있는 심화 학습이 가능하고, 커리큘럼 완성도를 높일 수 있기 때문입니다.</p>
+
+          <p>정직한 과정들이 모여 위대한 결과를 만든다는 믿음으로, 늘 바른 방향을 고민하며 수학의 본질을 가르치는 데 최선을 다하겠습니다.</p>
+
+          <p class="greeting-closing">감사합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 강사진 소개 ============ -->
+  <section class="team">
+    <div class="container">
+      <div class="team-header">
+        <span class="section-label reveal">Our Team</span>
+        <h2 class="section-title reveal reveal-delay-1">강사진 소개</h2>
+        <div class="gold-line reveal reveal-delay-2" style="margin: 20px auto;"></div>
+        <p class="section-desc team-header-desc reveal reveal-delay-3">
+          수학전공, 교원자격증 보유 전문 교육진이<br />학생 한 명 한 명의 성장을 책임집니다.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- 원장 -->
+        <div class="team-card reveal">
+          <div class="team-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <span class="team-card-role">Director</span>
+          <h3 class="team-card-name">원장</h3>
+          <div class="team-card-divider"></div>
+          <ul class="team-card-info">
+            <li><span class="highlight">수학전공</span> | 교원자격증 보유</li>
+            <li>서울 지역 중학교 교사 근무</li>
+            <li>서울 지역 학원 강사 근무</li>
+            <li>부산 지역 중학교 근무 경력</li>
+          </ul>
+        </div>
+
+        <!-- 부원장 -->
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <span class="team-card-role">Vice Director</span>
+          <h3 class="team-card-name">부원장</h3>
+          <div class="team-card-divider"></div>
+          <ul class="team-card-info">
+            <li><span class="highlight">수학전공</span> | 교원자격증 보유</li>
+            <li>서울 지역 학원 강사 근무</li>
+            <li>대구 수성구 학원 강사 근무</li>
+            <li>부산 남천동 학원 강사 근무</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BANNER ============ -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="reveal">리만수학과 함께 시작하세요</h2>
+      <p class="reveal reveal-delay-1">상담 및 입학 테스트를 통해 맞춤 학습 플랜을 설계해 드립니다.</p>
+      <div class="btn-group reveal reveal-delay-2">
+        <a href="https://forms.gle/bJafBKEVXUdz6goPA" target="_blank" class="btn btn-gold">입학 테스트 신청 →</a>
+        <a href="https://forms.gle/pWtTkvFh2NArEkT59" target="_blank" class="btn btn-dark">상담 예약 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <img src="./footer_logo.jpg" alt="리만수학학원" class="footer-logo-img" />
+        </div>
+        <div class="footer-copy" style="opacity:0.6; line-height:1.8;">
+          <strong>리만수학학원 교육청 등록정보</strong><br />
+          등록번호: 제 5302호 &nbsp;|&nbsp; 주소: 부산 부산진구 새싹로 218, 5층 (속편한장내과건물 5층) &nbsp;|&nbsp; 전화번호: 010.3615.8598
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-inner">
+        <div class="footer-copy">&copy; 2026 리만수학학원. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    // Navigation scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navMobile.classList.toggle('open');
+      document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function closeMobile() {
+      navToggle.classList.remove('active');
+      navMobile.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
+  </script>
+
+</body>
+</html>
