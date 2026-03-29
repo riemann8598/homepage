@@ -651,163 +651,33 @@
       text-align: right;
     }
 
-    /* ═══════════════════════════════════════════════
-       SECTION: 강사진 소개
-    ═══════════════════════════════════════════════ */
-    .team {
-      padding: 100px 0;
-      background: var(--cream);
+    .greeting-profiles {
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
     }
 
-    .team-header {
-      text-align: center;
-      margin-bottom: 72px;
+    .greeting-profile {
+      margin-bottom: 16px;
+      line-height: 1.9;
     }
 
-    .team-header .section-desc {
-      color: var(--ink-muted);
-      font-size: 1rem;
-      line-height: 1.8;
-      max-width: 480px;
-      margin: 0 auto;
+    .greeting-profile:last-child {
+      margin-bottom: 0;
     }
 
-    .team-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .team-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 56px 40px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s var(--ease-out-expo);
-    }
-
-    .team-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.06);
-    }
-
-    .team-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-    }
-
-    .team-card:first-child::before {
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    }
-
-    .team-card:last-child::before {
-      background: linear-gradient(90deg, var(--accent), var(--accent-light));
-    }
-
-    .team-card-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 2rem;
-    }
-
-    .team-card:first-child .team-card-icon {
-      background: rgba(184, 150, 62, 0.1);
-    }
-
-    .team-card:last-child .team-card-icon {
-      background: rgba(26, 58, 92, 0.1);
-    }
-
-    .team-card-role {
+    .greeting-profile strong {
       display: inline-block;
-      padding: 5px 16px;
-      border-radius: 100px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .team-card:first-child .team-card-role {
-      background: rgba(184, 150, 62, 0.1);
-      color: var(--gold-dark);
-    }
-
-    .team-card:last-child .team-card-role {
-      background: rgba(26, 58, 92, 0.1);
-      color: var(--accent);
-    }
-
-    .team-card-name {
       font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 0.95rem;
       color: var(--ink);
-      margin-bottom: 20px;
+      margin-right: 12px;
+      min-width: 52px;
     }
 
-    .team-card-divider {
-      width: 32px;
-      height: 2px;
-      background: var(--border);
-      margin: 0 auto 20px;
-    }
-
-    .team-card-info {
-      list-style: none;
-      text-align: left;
-    }
-
-    .team-card-info li {
+    .greeting-profile span {
       font-size: 0.9rem;
       color: var(--ink-muted);
-      line-height: 1.8;
-      padding: 6px 0;
-      padding-left: 24px;
-      position: relative;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .team-card-info li:last-child {
-      border-bottom: none;
-    }
-
-    .team-card-info li::before {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 14px;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-    }
-
-    .team-card:first-child .team-card-info li::before {
-      background: var(--gold);
-    }
-
-    .team-card:last-child .team-card-info li::before {
-      background: var(--accent);
-    }
-
-    .team-card-info .highlight {
-      color: var(--ink);
-      font-weight: 600;
     }
 
     /* ═══════════════════════════════════════════════
@@ -1861,21 +1731,10 @@
 
       .about,
       .greeting,
-      .team,
       .system,
       .schedule,
       .cta-section {
         padding: 80px 0;
-      }
-
-      .team-grid {
-        grid-template-columns: 1fr;
-        max-width: 420px;
-        margin: 0 auto;
-      }
-
-      .team-card {
-        padding: 40px 32px;
       }
 
       .cta-card {
@@ -2083,60 +1942,17 @@
           <p>정직한 과정들이 모여 위대한 결과를 만든다는 믿음으로, 늘 바른 방향을 고민하며 수학의 본질을 가르치는 데 최선을 다하겠습니다.</p>
 
           <p class="greeting-closing">감사합니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ 강사진 소개 ============ -->
-  <section class="team" id="team">
-    <div class="container">
-      <div class="team-header">
-        <span class="section-label reveal">Our Team</span>
-        <h2 class="section-title reveal reveal-delay-1">강사진 소개</h2>
-        <div class="gold-line reveal reveal-delay-2" style="margin: 20px auto;"></div>
-        <p class="section-desc team-header-desc reveal reveal-delay-3">
-          수학전공, 교원자격증 보유 전문 교육진이<br />학생 한 명 한 명의 성장을 책임집니다.
-        </p>
-      </div>
-
-      <div class="team-grid">
-        <!-- 원장 -->
-        <div class="team-card reveal">
-          <div class="team-card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
+          <div class="greeting-profiles reveal reveal-delay-4">
+            <div class="greeting-profile">
+              <strong>원장</strong>
+              <span>수학전공 | 교원자격증 보유 | 서울 지역 중학교 교사 · 학원 강사 근무 | 부산 지역 중학교 근무</span>
+            </div>
+            <div class="greeting-profile">
+              <strong>부원장</strong>
+              <span>수학전공 | 교원자격증 보유 | 서울 지역 학원 강사 근무 | 대구 수성구 학원 강사 근무 | 부산 남천동 학원 강사 근무</span>
+            </div>
           </div>
-          <span class="team-card-role">Director</span>
-          <h3 class="team-card-name">원장</h3>
-          <div class="team-card-divider"></div>
-          <ul class="team-card-info">
-            <li><span class="highlight">수학전공</span> | 교원자격증 보유</li>
-            <li>서울 지역 중학교 교사 근무</li>
-            <li>서울 지역 학원 강사 근무</li>
-            <li>부산 지역 중학교 근무 경력</li>
-          </ul>
-        </div>
-
-        <!-- 부원장 -->
-        <div class="team-card reveal reveal-delay-2">
-          <div class="team-card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
-          </div>
-          <span class="team-card-role">Vice Director</span>
-          <h3 class="team-card-name">부원장</h3>
-          <div class="team-card-divider"></div>
-          <ul class="team-card-info">
-            <li><span class="highlight">수학전공</span> | 교원자격증 보유</li>
-            <li>서울 지역 학원 강사 근무</li>
-            <li>대구 수성구 학원 강사 근무</li>
-            <li>부산 남천동 학원 강사 근무</li>
-          </ul>
         </div>
       </div>
     </div>
