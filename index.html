@@ -655,29 +655,56 @@
       margin-top: 48px;
       padding-top: 36px;
       border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
     }
 
     .greeting-profile {
-      margin-bottom: 16px;
-      line-height: 1.9;
-    }
-
-    .greeting-profile:last-child {
-      margin-bottom: 0;
+      padding: 28px;
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
     }
 
     .greeting-profile strong {
-      display: inline-block;
+      display: block;
       font-family: var(--font-display);
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       color: var(--ink);
-      margin-right: 12px;
-      min-width: 52px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gold);
     }
 
-    .greeting-profile span {
-      font-size: 0.9rem;
+    .greeting-profile ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .greeting-profile li {
+      font-size: 0.88rem;
       color: var(--ink-muted);
+      line-height: 1.7;
+      padding: 5px 0 5px 16px;
+      position: relative;
+    }
+
+    .greeting-profile li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+      .greeting-profiles {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ═══════════════════════════════════════════════
@@ -1946,11 +1973,21 @@
           <div class="greeting-profiles reveal reveal-delay-4">
             <div class="greeting-profile">
               <strong>원장</strong>
-              <span>수학전공 | 교원자격증 보유 | 서울 지역 중학교 교사 · 학원 강사 근무 | 부산 지역 중학교 근무</span>
+              <ul>
+                <li>수학전공 | 교원자격증 보유</li>
+                <li>서울 지역 중학교 교사 근무</li>
+                <li>서울 지역 학원 강사 근무</li>
+                <li>부산 지역 중학교 근무</li>
+              </ul>
             </div>
             <div class="greeting-profile">
               <strong>부원장</strong>
-              <span>수학전공 | 교원자격증 보유 | 서울 지역 학원 강사 근무 | 대구 수성구 학원 강사 근무 | 부산 남천동 학원 강사 근무</span>
+              <ul>
+                <li>수학전공 | 교원자격증 보유</li>
+                <li>서울 지역 학원 강사 근무</li>
+                <li>대구 수성구 학원 강사 근무</li>
+                <li>부산 남천동 학원 강사 근무 등</li>
+              </ul>
             </div>
           </div>
         </div>
