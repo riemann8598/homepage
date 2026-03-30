@@ -2296,27 +2296,27 @@
             <tbody>
               <tr>
                 <td>초등 4~5학년</td>
-                <td><span class="enrollment-badge" id="enroll-0">불러오는 중…</span></td>
+                <td><span class="enrollment-badge">모집 중</span></td>
               </tr>
               <tr>
                 <td>초등 6학년</td>
-                <td><span class="enrollment-badge" id="enroll-1">불러오는 중…</span></td>
+                <td><span class="enrollment-badge">모집 중</span></td>
               </tr>
               <tr>
                 <td>중등 1~2학년</td>
-                <td><span class="enrollment-badge" id="enroll-2">불러오는 중…</span></td>
+                <td><span class="enrollment-badge">모집 중</span></td>
               </tr>
               <tr>
                 <td>중등 3학년</td>
-                <td><span class="enrollment-badge" id="enroll-3">불러오는 중…</span></td>
+                <td><span class="enrollment-badge">모집 중</span></td>
               </tr>
               <tr>
                 <td>고등 1~2학년</td>
-                <td><span class="enrollment-badge" id="enroll-4">불러오는 중…</span></td>
+                <td><span class="enrollment-badge">모집 중</span></td>
               </tr>
               <tr>
                 <td>고등 3학년</td>
-                <td><span class="enrollment-badge" id="enroll-5">불러오는 중…</span></td>
+                <td><span class="enrollment-badge">모집 중</span></td>
               </tr>
             </tbody>
           </table>
@@ -2444,37 +2444,6 @@
     }
   </script>
 
-  <!-- 학년별 등록 현황 실시간 연동 -->
-  <script>
-    (function () {
-      var sheetId = '1CQgCiMOCqDDcfPFfsEZvCwxKlwW-USvyEjBQveGsbf8';
-      var url = 'https://docs.google.com/spreadsheets/d/' + sheetId + '/gviz/tq?tqx=out:json&range=B2:B7';
-
-      fetch(url)
-        .then(function (res) { return res.text(); })
-        .then(function (text) {
-          var json = JSON.parse(text.substring(47).slice(0, -2));
-          var rows = json.table.rows;
-          for (var i = 0; i < rows.length; i++) {
-            var el = document.getElementById('enroll-' + i);
-            if (el && rows[i].c[0]) {
-              var value = rows[i].c[0].v;
-              el.textContent = value;
-              if (value === '마감') {
-                el.classList.remove('enrollment-badge');
-                el.classList.add('enrollment-badge-closed');
-              }
-            }
-          }
-        })
-        .catch(function () {
-          for (var i = 0; i < 6; i++) {
-            var el = document.getElementById('enroll-' + i);
-            if (el) el.textContent = '-';
-          }
-        });
-    })();
-  </script>
 </body>
 
 </html>
